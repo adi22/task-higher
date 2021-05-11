@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Task</title>
+  </head>
+  <body>
+    <script>
+      fetch('https://picsum.photos/v2/list')
+        .then(res => res.json())
+        .then(data => {
+        img = new Image(150, 100);
+        src = null;
+
+          for (i = 0; i < data.length; i++) {
+            //console.log(data[i].download_url);
+            src = data[i].download_url;
+            img.src = src;
+            document.body.appendChild(img);
+          }
+        })
+      .catch(err => alert(err.message))
+    </script>
+  </body>
+</html>
